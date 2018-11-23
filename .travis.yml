@@ -6,7 +6,8 @@ python:
 
 # install dependencies and sloth
 install:
-  - pip install numpy pillow python-qt5 qtpy
+  - sudo apt-get install python-qt5
+  - pip install numpy pillow qtpy
   - pip install .
 
 # run tests 

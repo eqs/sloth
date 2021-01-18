@@ -4,3 +4,4 @@ doc/_build/*
 *.py~
 build/*
 .cache
+*.egg-info/*

@@ -1,4 +1,6 @@
 """This is the AnnotationScene module"""
+from qtpy.QtCore import Qt, QRectF
+from qtpy.QtWidgets import *
 from sloth.items import *
 from sloth.core.exceptions import InvalidArgumentException
 from sloth.annotations.model import AnnotationModelItem

@@ -60,6 +60,5 @@ setup(name='sloth',
       url='http://sloth.readthedocs.org/',
       requires=['importlib', 'qtpy', 'numpy'],
       packages=packages,
-      data_files=data_files,
-      scripts=['sloth/bin/sloth']
+      data_files=data_files
 )

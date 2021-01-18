@@ -250,9 +250,10 @@ class AnnotationScene(QGraphicsScene):
 
     def editSelectedItems(self):
         scene_items = self.selectedItems()
-        if self._inserter is None or len(scene_items) > 0:
-            items = [item.modelItem() for item in scene_items]
-            self._labeltool.propertyeditor().startEditMode(items)
+        if self._labeltool.propertyeditor():
+            if self._inserter is None or len(scene_items) > 0:
+                items = [item.modelItem() for item in scene_items]
+                self._labeltool.propertyeditor().startEditMode(items)
 
     #
     # key event handlers

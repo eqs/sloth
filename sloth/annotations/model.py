@@ -6,8 +6,14 @@ import time
 import logging
 import copy
 from collections import MutableMapping
-from PyQt4.QtGui import QTreeView, QItemSelection, QItemSelectionModel, QSortFilterProxyModel, QBrush
-from PyQt4.QtCore import QModelIndex, QAbstractItemModel, Qt, pyqtSignal, QVariant, QObject
+from qtpy.QtWidgets import QTreeView
+from qtpy.QtGui import QBrush
+from qtpy.QtCore import (
+    Qt, QVariant, QObject, QModelIndex,
+    QAbstractItemModel, QItemSelection, QItemSelectionModel,
+    QSortFilterProxyModel
+)
+from qtpy.QtCore import Signal as pyqtSignal
 
 LOG = logging.getLogger(__name__)
 

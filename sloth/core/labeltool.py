@@ -3,8 +3,8 @@ This is the core labeltool module.
 """
 import os
 import sys
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
+from qtpy.QtCore import *
+from qtpy.QtWidgets import *
 from sloth.annotations.model import *
 from sloth.annotations.container import AnnotationContainerFactory, AnnotationContainer
 from sloth.conf import config

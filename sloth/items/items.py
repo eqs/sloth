@@ -1,5 +1,5 @@
 import logging
-from PyQt4.Qt import *
+from qtpy.QtWidgets import *
 
 
 LOG = logging.getLogger(__name__)

@@ -22,7 +22,7 @@
 #############################################################################
 
 import sip
-from PyQt4 import QtCore, QtGui
+from qtpy import QtCore
 
 
 class ModelTest(QtCore.QObject):

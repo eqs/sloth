@@ -1,7 +1,14 @@
 import time
 import logging
-from PyQt4.QtCore import pyqtSignal, QSize, Qt
-from PyQt4.QtGui import QWidget, QGroupBox, QVBoxLayout, QPushButton, QScrollArea, QLineEdit, QDoubleValidator, QIntValidator, QShortcut, QKeySequence
+from qtpy.QtCore import QSize, Qt
+from qtpy.QtCore import Signal as pyqtSignal
+from qtpy.QtWidgets import (
+    QWidget, QGroupBox, QVBoxLayout, QPushButton,
+    QScrollArea, QLineEdit, QShortcut
+)
+from qtpy.QtGui import (
+    QKeySequence, QDoubleValidator, QIntValidator,
+)
 from sloth.core.exceptions import ImproperlyConfigured
 from sloth.annotations.model import AnnotationModelItem
 from sloth.gui.floatinglayout import FloatingLayout

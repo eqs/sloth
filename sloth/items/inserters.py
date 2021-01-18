@@ -1,6 +1,8 @@
 import math
-from PyQt4.QtGui import *
-from PyQt4.Qt import *
+from qtpy.QtCore import QObject
+from qtpy.QtCore import Signal as pyqtSignal
+from qtpy.QtGui import *
+from qtpy.QtWidgets import *
 
 
 class ItemInserter(QObject):

@@ -2,11 +2,20 @@
 import logging, os
 import functools
 import fnmatch
-from PyQt4.QtGui import QMainWindow, QSizePolicy, QWidget, QVBoxLayout, QAction,\
-        QKeySequence, QLabel, QItemSelectionModel, QMessageBox, QFileDialog, QFrame, \
-        QDockWidget, QProgressBar, QProgressDialog
-from PyQt4.QtCore import SIGNAL, QSettings, QSize, QPoint, QVariant, QFileInfo, QTimer, pyqtSignal, QObject
-import PyQt4.uic as uic
+from qtpy.QtWidgets import (
+    QMainWindow, QSizePolicy, QWidget, QVBoxLayout, QAction,
+    QLabel, QMessageBox, QFileDialog,
+    QFrame, QDockWidget, QProgressBar, QProgressDialog
+)
+from qtpy.QtGui import (
+    QKeySequence
+)
+from qtpy.QtCore import (
+    QSettings, QSize, QPoint, QVariant, QFileInfo, QTimer, QObject,
+    QItemSelectionModel
+)
+from qtpy.QtCore import Signal as pyqtSignal
+import qtpy.uic as uic
 from sloth.gui import qrc_icons  # needed for toolbar icons
 from sloth.gui.propertyeditor import PropertyEditor
 from sloth.gui.annotationscene import AnnotationScene
@@ -232,10 +241,10 @@ class MainWindow(QMainWindow):
 
         # get inserters and items from labels
         # FIXME for handling the new-style config correctly
-        inserters = dict([(label['attributes']['class'], label['inserter']) 
+        inserters = dict([(label['attributes']['class'], label['inserter'])
                           for label in config.LABELS
                           if 'class' in label.get('attributes', {}) and 'inserter' in label])
-        items = dict([(label['attributes']['class'], label['item']) 
+        items = dict([(label['attributes']['class'], label['item'])
                       for label in config.LABELS
                       if 'class' in label.get('attributes', {}) and 'item' in label])
 
@@ -301,7 +310,7 @@ class MainWindow(QMainWindow):
         self.copyAnnotations = CopyAnnotations(self.labeltool)
         self.interpolateRange = InterpolateRange(self.labeltool)
 
-        # Show the UI.  It is important that this comes *after* the above 
+        # Show the UI.  It is important that this comes *after* the above
         # adding of custom widgets, especially the central widget.  Otherwise the
         # dock widgets would be far to large.
         self.ui.show()
@@ -397,7 +406,7 @@ class MainWindow(QMainWindow):
             path = QFileInfo(filename).path()
 
         format_str = ' '.join(self.labeltool.getAnnotationFilePatterns())
-        fname = QFileDialog.getOpenFileName(self, 
+        fname = QFileDialog.getOpenFileName(self,
                 "%s - Load Annotations" % APP_NAME, path,
                 "%s annotation files (%s)" % (APP_NAME, format_str))
         if len(str(fname)) > 0:
@@ -446,20 +455,20 @@ class MainWindow(QMainWindow):
             for pattern in image_types:
                 if fnmatch.fnmatch(fname.lower(), pattern):
                     item = self.labeltool.addImageFile(fname)
-            
+
             progress_bar.setValue(c)
 
         if item is None:
             return self.labeltool.addVideoFile(fname)
 
         progress_bar.close()
-        
+
         return item
 
     def onViewsLockedChanged(self, checked):
         features = QDockWidget.AllDockWidgetFeatures
         if checked:
-            features = QDockWidget.NoDockWidgetFeatures 
+            features = QDockWidget.NoDockWidgetFeatures
 
         self.ui.dockProperties.setFeatures(features)
         self.ui.dockAnnotations.setFeatures(features)

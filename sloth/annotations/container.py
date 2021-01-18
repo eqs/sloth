@@ -349,7 +349,7 @@ class YamlContainer(AnnotationContainer):
         Overwritten to read YAML files.
         """
         f = open(fname, "r")
-        return yaml.load(f)
+        return yaml.load(f, Loader=yaml.FullLoader)
 
     def serializeToFile(self, fname, annotations):
         """

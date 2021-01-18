@@ -5,7 +5,7 @@ import os.path
 import time
 import logging
 import copy
-from collections import MutableMapping
+from collections.abc import MutableMapping
 from qtpy.QtWidgets import QTreeView
 from qtpy.QtGui import QBrush
 from qtpy.QtCore import (

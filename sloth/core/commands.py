@@ -183,7 +183,7 @@ class MergeFilesCommand(BaseCommand):
             match_item = matching_items[0]
 
             # Update the keys first.
-            for key, value in item.iteritems():
+            for key, value in item.items():
                 if key == 'annotations':
                     continue
                 if match_item['class'] == 'video' and key == 'frames':

@@ -1,6 +1,6 @@
 import sys
-from PyQt4.QtGui import *
-from PyQt4.QtCore import *
+from qtpy.QtCore import *
+from qtpy.QtWidgets import *
 from sloth.gui.floatinglayout import FloatingLayout
 import logging
 

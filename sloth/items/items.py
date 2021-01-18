@@ -1,4 +1,6 @@
 import logging
+from qtpy.QtCore import Qt, QRectF
+from qtpy.QtGui import QPen
 from qtpy.QtWidgets import *
 
 
